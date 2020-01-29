@@ -2,7 +2,7 @@ import numpy as np
 from numpy import linalg as LA 
 from vector import Vector
 import math
-
+#TODO - fix follow function of segment class 
 class Segment:
     angle = 0
     
