@@ -1,9 +1,39 @@
 import numpy as np 
 from numpy import linalg as LA 
+from p5 import *
 
 class Segment:
-    def __init__(point, len, i):
-    def follow(tx , ty):
+    def __init__(self, point, length, i):
+        self.par = point
+        self.a = self.par.copy()
+
+        self.b = Vector(0,0)
+        self.angle = 0
+        self.sw = remap(i, (0, 20), (1, 10))
+        self.len = length
+        self.calculateB()
+
+    def follow(tx, ty):
+        if ty == "a":
+            targetX = self.child.a.x
+            targetY = self.child.a.y
+            self.follor(targetX, targetY)
+        else:
+            target = Vector(tx,ty)
+            dirr = target - self.a
+            self.angle = dirr.heading()
+
+            dirr.magnitude = self.len
+            dirr = dirr * -1
+            self.a = target + dirr
+
     def calculateB():
+        dx = self.len * math.cos(self.angle)
+        dy = self.len * math.sin(self.angle)
+        self.b = Vector(self.a.x + dx, self.a.y + dy)
+
     def update():
-        
+        self.calculateB()
+
+
+
