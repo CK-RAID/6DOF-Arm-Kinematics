@@ -1,19 +1,25 @@
 import numpy as np 
 from numpy import linalg as LA 
-import Vector
+from vector import Vector
+import math
 
 class Segment:
-    def __init__(self, point, length, i):
-        self.par = point
-        self.a = self.par.copy()
+    angle = 0
+    
+    def __init__(self, points, len_, i):
+        if isinstance(points, list):
+            self.a = Vector(points[0], points[1])
+            
+            self.len = len_
+            self.calculateB()
+        elif isinstance(points, Segment):
+            self.parent = points
+            
+            a = parent.b.copy()
+            len = len_
+            calculateB()
 
-        self.b = Vector(0,0)
-        self.angle = 0
-        self.sw = remap(i, (0, 20), (1, 10))
-        self.len = length
-        self.calculateB()
-
-    def follow(tx, ty):
+    def follow(self, tx, ty):
         if ty == "a":
             targetX = self.child.a.x
             targetY = self.child.a.y
@@ -27,12 +33,13 @@ class Segment:
             dirr = dirr * -1
             self.a = target + dirr
 
-    def calculateB():
+    def calculateB(self):
         dx = self.len * math.cos(self.angle)
         dy = self.len * math.sin(self.angle)
         self.b = Vector(self.a.x + dx, self.a.y + dy)
 
-    def update():
+    def update(self):
         self.calculateB()
 
-
+points = [0,1]
+seg = Segment(points, 10,1)
