@@ -1,6 +1,6 @@
 import numpy as np 
 from numpy import linalg as LA 
-import vector
+import Vector
 
 class Segment:
     def __init__(self, point, length, i):
@@ -36,5 +36,3 @@ class Segment:
         self.calculateB()
 
 
-
-seg = Segment(2,3,4)
