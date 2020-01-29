@@ -1,6 +1,6 @@
 import numpy as np 
 from numpy import linalg as LA 
-from p5 import *
+import vector
 
 class Segment:
     def __init__(self, point, length, i):
@@ -17,7 +17,7 @@ class Segment:
         if ty == "a":
             targetX = self.child.a.x
             targetY = self.child.a.y
-            self.follor(targetX, targetY)
+            self.follow(targetX, targetY)
         else:
             target = Vector(tx,ty)
             dirr = target - self.a
@@ -37,3 +37,4 @@ class Segment:
 
 
 
+seg = Segment(2,3,4)
